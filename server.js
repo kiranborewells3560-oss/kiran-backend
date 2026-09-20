@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-require('dotenv').config();
 
 const app = express();
 
@@ -10,7 +9,8 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI)
+const MONGODB_URI = 'mongodb+srv://kiranborewells3560_db_user:5yvxRBMk329YxYYB@cluster0.xufscpf.mongodb.net/kiranborewells?retryWrites=true&w=majority&appName=Cluster0';
+mongoose.connect(MONGODB_URI)
   .then(() => console.log('Connected to MongoDB Atlas'))
   .catch(err => console.error('MongoDB connection error:', err));
 
